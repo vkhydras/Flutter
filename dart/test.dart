@@ -1,23 +1,17 @@
-void main(){
-    Person p1 = Person('Joagn', 'Male', 44);
-    p1.showData();
-}
+// /*
+// ?? >> if null take this eg. int num = num1 ?? num2
+// ??= >>  name ??= name2 i.e if name is null the assing name2 to name
+// ?. >> name?.lenght i.e if name is not null then find it's length
+// */
 
-class Person{
-  String ? name, gender;
-  int ? age;
+// void test(List<String>? names) {
+ 
+//  final length = names?.length ?? 0;
+//   print(length);
+// }
 
- //constructor
-  Person(String name,gender, int age){
-    this.name = name;
-    this.gender = gender;
-    this.age = age;
-  }
 
-  //method
-  void showData(){
-    print('Name = ${name}');
-    print('sex = $gender');
-    print('Age =  $age');
-  }
+
+void main (){
+ 
 }
