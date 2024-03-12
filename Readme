@@ -1,0 +1,88 @@
+
+**
+class _HomePageState extends State<HomePage> {
+
+  late final TextEditingController _emial;
+  late final TextEditingController _password;
+
+  @override
+ ///late simply mean that the var is not assigned but will be assigned later(like a contrants of some sort)
+  **
+
+
+***statefull>> contains mutable(changerble) infos while Stateless contains immutable(unchangerble)
+
+ stl >>>type to create a Widget
+
+ Stateless componet
+ ****
+     class HomePage extends StatelessWidget {
+   const HomePage({super.key});
+
+   @override
+   Widget build(BuildContext context) {
+     return Container(color: Colors.red,); >> defining the color of the contaoner red
+   }
+ }
+ **
+
+ ***Scaffold
+
+          @override
+   Widget build(BuildContext context) {
+     return Scaffold(
+       appBar: AppBar(
+         title:const  Text("Register"),
+         ),
+     );
+   }
+ }
+ class Scaffold extends StatefulWidget {
+    /// Creates a visual scaffold for Material Design widgets.
+    const Scaffold({
+      super.key,
+      this.appBar,
+      this.body,
+      this.floatingActionButton,
+      this.floatingActionButtonLocation,
+      this.floatingActionButtonAnimator,
+      this.persistentFooterButtons,
+      this.persistentFooterAlignment = AlignmentDirectional.centerEnd,
+      this.drawer,
+      this.onDrawerChanged,
+      this.endDrawer,
+      this.onEndDrawerChanged,
+      this.bottomNavigationBar,
+      this.bottomSheet,
+      this.backgroundColor,
+      this.resizeToAvoidBottomInset,
+      this.primary = true,
+      this.drawerDragStartBehavior = DragStartBehavior.start,
+      this.extendBody = false,
+      this.extendBodyBehindAppBar = false,
+      this.drawerScrimColor,
+      this.drawerEdgeDragWidth,
+      this.drawerEnableOpenDragGesture = true,
+      this.endDrawerEnableOpenDragGesture = true,
+      this.restorationId,
+    });
+
+    ***initState
+    In the Flutter framework, `initState` is a lifecycle method in the `State` class that is called exactly once when the state object is inserted into the tree, i.e., just before the `StatefulWidget` appears on the screen. It is the perfect place to initialize data that depends on the context and to set up any controllers, listeners, or any initial network requests your widget needs before it is displayed.
+
+    In the given code snippet, `initState` is overridden in `_HomePageState`, which is the state class for `HomePage`, a `StatefulWidget`. Let's break down what happens in the `initState` method of this example:
+    
+    ```dart
+    @override
+    void initState() {
+      _email = TextEditingController();
+      _password = TextEditingController();
+      super.initState();
+    }
+    ```
+    
+    1. **Controller Initialization**: Two `TextEditingController` instances are created and assigned to `_email` and `_password` respectively. `TextEditingController` is a class that Flutter provides to control the text being edited. It can also be used to control the selection and composing region (if any) of the text being edited. Here, these controllers are likely intended to be used with `TextField` widgets to capture and manipulate the input from the user, such as email and password inputs.
+    
+    2. **Call to `super.initState()`**: Finally, it calls `super.initState()`. This is a crucial call because the `initState` method in the base `State` class might also be setting up some essential internals for the state object. Failing to call `super.initState()` can lead to unexpected behaviors or runtime errors. It's a good practice to call `super.initState()` at the beginning of your `initState` method, but in Dart, as long as it's called at some point in the method, it's fine. In this example, it's called after initializing the controllers, which is acceptable.
+    
+    The `initState` method is the right place for initialization and configuration that needs to happen only once because if you placed this logic in the `build` method, for example, it would be executed on every rebuild, leading to performance issues and potentially unexpected behavior, as new controllers would be created every time the widget rebuilds. Also, disposing of the controllers in the `dispose` method, as done in this code, ensures that any resources used by the controllers are properly released when the state object is removed from the tree, preventing memory leaks.
